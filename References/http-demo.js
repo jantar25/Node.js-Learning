@@ -1,10 +1,15 @@
 const http = require("http");
 
 //Create a server object
-http
-  .createServer((req, res) => {
+const server = http.createServer((req, res) => {
+  //writing request
+  if (req.url === "/") {
     //writing response
-    res.write("Hello World");
+    res.write("Hello World form Jantar");
     res.end();
-  })
-  .listen(5000, () => console.log("Server is up..."));
+  } else {
+    res.write("Using some other domain");
+    res.end();
+  }
+});
+server.listen(5000, () => console.log("Server is up..."));
